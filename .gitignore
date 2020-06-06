@@ -1,0 +1,11 @@
+.idea/
+*.iml
+
+vendor/
+bin/
+
+# goreleaser
+dist
+
+*.snap
+.snapcraft

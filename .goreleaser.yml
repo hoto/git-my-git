@@ -1,0 +1,41 @@
+---
+builds:
+  - main: .
+    ldflags:
+      - '-s -w -X main.Version={{.Version}} -X main.ShortCommit={{.ShortCommit}} -X main.BuildDate={{.Date}}'
+    env:
+      - CGO_ENABLED=0
+    ignore:
+      - goos: darwin
+        goarch: 386
+archives:
+  - format: binary
+    replacements:
+      darwin: Darwin
+      linux: Linux
+      386: i386
+      amd64: x86_64
+  - id: homebrew
+    name_template: "{{ .Binary }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    replacements:
+      darwin: Darwin
+      linux: Linux
+      amd64: x86_64
+    format: zip
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+release:
+  prerelease: auto
+changelog:
+  sort: asc
+brews:
+  - github:
+      owner: hoto
+      name: homebrew-repo
+    folder: Formula
+    homepage:  https://github.com/hoto/git-my-git
+    description: Navigitae locally cloned repos.
+    test: |
+      system "#{bin}/git-my-git --version"
