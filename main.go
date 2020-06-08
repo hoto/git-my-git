@@ -1,11 +1,12 @@
 package main
 
 import (
-    "fmt"
-    "github.com/logrusorgru/aurora"
+	"fmt"
+	"github.com/hoto/git-my-git/config"
+	"github.com/logrusorgru/aurora"
 )
 
 func main() {
-    fmt.Printf("hello %s\n", aurora.Cyan("world"))
-    ParseArgsAndFlags()
+	config.ParseArgsAndFlags()
+	fmt.Printf("hello %s\n", aurora.Cyan("world"))
 }

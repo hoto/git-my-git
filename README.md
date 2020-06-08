@@ -9,7 +9,6 @@ Navigitae locally cloned repos.
 
 ### TODO:
 
-* Fix config vars by using goreleaser default ldflags
 * Use GPG signing for commits and releases
 
 ### Installation

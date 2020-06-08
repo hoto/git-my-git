@@ -1,4 +1,4 @@
-package main
+package config
 
 import (
 	"flag"
@@ -50,6 +50,4 @@ func overrideUsage() func() {
 func debugLog() {
 	fmt.Println("Args:")
 	fmt.Printf("  args=%s\n", aurora.Cyan(flag.Args()))
-	fmt.Println()
-	fmt.Println("Config:")
 }

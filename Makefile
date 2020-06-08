@@ -1,5 +1,8 @@
 all: clean build test
 
+
+REPO_NAME = github.com/hoto/git-my-git
+
 clean:
 	go clean
 	rm -rf bin/ dist/
@@ -10,10 +13,7 @@ dependencies:
 	go mod verify
 
 build: dependencies
-	go build -o bin/git-my-git
-
-build-with-ldflags: dependencies
-	go build -ldflags="-X 'main.Version=0.0.0' -X 'main.ShortCommit=hash' -X 'main.BuildDate=today'" -o bin/git-my-git
+	go build -ldflags="-X '${REPO_NAME}/config.Version=0.0.0' -X '${REPO_NAME}/config.ShortCommit=HASH' -X '${REPO_NAME}/config.BuildDate=DATE'" -o bin/git-my-git
 
 test:
 	go test -v ./...
