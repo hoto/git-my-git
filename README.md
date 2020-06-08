@@ -7,15 +7,11 @@
 
 Navigitae locally cloned repos.
 
-### TODO:
-
-* Use GPG signing for commits and releases
-
 ### Installation
     
 Mac:
 
-    brew install hoto/tap/git-my-git
+    brew install hoto/repo/git-my-git
 
 Mac or Linux:
 

@@ -1,4 +1,4 @@
-all: clean build test
+all: clean build test run  install github-release github-release-dry-run goreleaser-dry-run
 
 REPO_NAME = github.com/hoto/git-my-git
 
