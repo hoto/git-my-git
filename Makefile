@@ -1,6 +1,5 @@
 all: clean build test
 
-
 REPO_NAME = github.com/hoto/git-my-git
 
 clean:
