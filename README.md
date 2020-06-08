@@ -47,21 +47,15 @@ Help:
     
 ### Development
 
-Get:
+Build and test:
 
     go get github.com/hoto/git-my-git
-
-Download dependencies:
-
-    make dependencies
-
-Build, test and run:
-
-    make clean
-    make build
-    make test
-    make run
     
+    make dependencies build test
+    
+Build binary:
+
+     make build
     ./bin/git-my-git
 
 Run with arguments:
@@ -71,3 +65,4 @@ Run with arguments:
 Install to global golang bin directory:
 
     make install
+    git-my-git
