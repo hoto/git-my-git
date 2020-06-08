@@ -66,3 +66,4 @@ Install to global golang bin directory:
 
     make install
     git-my-git
+    
