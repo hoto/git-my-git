@@ -5,13 +5,15 @@ import (
 	"fmt"
 	"github.com/logrusorgru/aurora"
 	"os"
+	"strings"
 )
 
 var (
-	Version     string
-	ShortCommit string
-	BuildDate   string
-	Debug       bool
+	Version      string
+	ShortCommit  string
+	BuildDate    string
+	Debug        bool
+	ProjectRoots []string
 )
 
 func ParseArgsAndFlags() {
@@ -19,8 +21,12 @@ func ParseArgsAndFlags() {
 
 	flag.BoolVar(&Debug, "debug", false, "Show verbose debug information")
 	showVersion := flag.Bool("version", false, "Show version")
+	projectRoots := flag.String("projectRoots", "",
+		"Comma separated list of project roots directories")
 
 	flag.Parse()
+
+	ProjectRoots = strings.Split(*projectRoots, ",")
 
 	if *showVersion {
 		fmt.Printf("git-my-git version %s, commit %s, build %s\n",

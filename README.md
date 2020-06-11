@@ -7,6 +7,36 @@
 
 Navigitae locally cloned repos.
 
+
+# WIP TODO
+
+    git-my-git (show help)
+    git-my-git help
+    git-my-git --help
+    git-my-git regenerate --paths "~/projects, ~/go/src/github.com/hoto"
+    git-my-git reset --frequency|last_accessed_date
+    git-my-git find myprojectname
+    git-my-git imfeelinglucky myprojectname (navigate to first found project)
+    git-my-git imfeelinglucky --weight alphabetic|frequency myprojectname
+
+> ~/.config/git-my-git/git-my-git.yml
+
+```yaml
+projects:
+  - path: "/home/.../hello-pony"
+    frequency: 0
+    created_date: "2020-11-03:10:11:02:UTC"
+    last_accessed_date: "2020-11-03:10:11:02:UTC"
+  - path: "/home/.../project-zeta"
+    frequency: 0
+    created_date: "2020-11-03:10:11:02:UTC"
+    last_accessed_date: "2020-11-03:10:11:02:UTC"
+  - path: "/home/.../im-hungry"
+    frequency: 2
+    created_date: "2020-11-03:10:11:02:UTC"
+    last_accessed_date: "2020-11-03:10:11:02:UTC"
+```
+
 ### Installation
     
 Mac:

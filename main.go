@@ -3,10 +3,16 @@ package main
 import (
 	"fmt"
 	"github.com/hoto/git-my-git/config"
-	"github.com/logrusorgru/aurora"
+	"github.com/hoto/git-my-git/io"
 )
 
 func main() {
 	config.ParseArgsAndFlags()
-	fmt.Printf("hello %s\n", aurora.Cyan("world"))
+
+	var gitRepos []string
+	for _, rootPath := range config.ProjectRoots {
+		io.FindGitRepositories(&gitRepos, rootPath)
+	}
+	fmt.Printf("Found %d repos.\n", len(gitRepos))
+	fmt.Printf("Paths=%s", gitRepos)
 }
