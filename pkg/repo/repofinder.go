@@ -1,4 +1,4 @@
-package io
+package repo
 
 import (
 	"fmt"
@@ -6,14 +6,30 @@ import (
 	"os"
 )
 
-func FindGitRepositories(gitRepos *[]string, path string) bool {
-	fileInfo, err := os.Stat(path)
+func FindRepos(root string) []Repository {
+	var repositories []Repository
+	var paths []string
+	findRepoPaths(&paths, root)
+	for _, path := range paths {
+		repository := Repository{
+			Path:  path,
+			Root:  root,
+			Group: "group",
+			Name:  "name",
+		}
+		repositories = append(repositories, repository)
+	}
+	return repositories
+}
+
+func findRepoPaths(allRepoPaths *[]string, pathToCheck string) bool {
+	fileInfo, err := os.Stat(pathToCheck)
 	check(err)
 	if fileInfo.Mode().IsRegular() {
 		return false
 	}
 
-	directory, err := os.Open(path)
+	directory, err := os.Open(pathToCheck)
 	check(err)
 	directories, err := directory.Readdirnames(0)
 	check(err)
@@ -25,7 +41,7 @@ func FindGitRepositories(gitRepos *[]string, path string) bool {
 	for i := 0; i < len(directories); i++ {
 		currentDir := directories[i]
 		if currentDir == ".git" {
-			*gitRepos = append(*gitRepos, fullPath(path, currentDir))
+			*allRepoPaths = append(*allRepoPaths, fullPath(pathToCheck, currentDir))
 			stopDigging = true
 			break
 		}
@@ -34,7 +50,7 @@ func FindGitRepositories(gitRepos *[]string, path string) bool {
 	if !stopDigging {
 		for i := 0; i < len(directories); i++ {
 			currentDir := directories[i]
-			stopDigging := FindGitRepositories(gitRepos, fullPath(path, currentDir))
+			stopDigging := findRepoPaths(allRepoPaths, fullPath(pathToCheck, currentDir))
 			if stopDigging {
 				continue
 			}

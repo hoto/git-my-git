@@ -12,7 +12,7 @@ dependencies:
 	go mod verify
 
 build: dependencies
-	go build -ldflags="-X '${REPO_NAME}/config.Version=0.0.0' -X '${REPO_NAME}/config.ShortCommit=HASH' -X '${REPO_NAME}/config.BuildDate=DATE'" -o bin/git-my-git
+	go build -ldflags="-X '${REPO_NAME}/pkg/config.Version=0.0.0' -X '${REPO_NAME}/pkg/config.ShortCommit=HASH' -X '${REPO_NAME}/pkg/config.BuildDate=DATE'" -o bin/git-my-git ./cmd/git-my-git/main.go
 
 test:
 	go test -v ./...

@@ -1,8 +1,8 @@
 ---
 builds:
-  - main: .
+  - main: ./cmd/git-my-git/main.go
     ldflags:
-      - '-s -w -X github.com/hoto/git-my-git/config.Version={{.Version}} -X github.com/hoto/git-my-git/config.ShortCommit={{.ShortCommit}} -X github.com/hoto/git-my-git/config.BuildDate={{.Date}}'
+      - '-s -w -X github.com/hoto/git-my-git/pkg/config.Version={{.Version}} -X github.com/hoto/git-my-git/pkg/config.ShortCommit={{.ShortCommit}} -X github.com/hoto/git-my-git/pkg/config.BuildDate={{.Date}}'
     env:
       - CGO_ENABLED=0
     ignore:

@@ -23,18 +23,20 @@ Navigitae locally cloned repos.
 
 ```yaml
 projects:
-  - path: "/home/.../hello-pony"
+  - path: "/home/andrzej.rehmann/projects/github/work/project-a"
+    root: "/home/andrzej.rehmann/projects"
+    group: "github/work"
+    name: "project-a"
+    frequency: 7
+    created_date: "2020-11-03:10:11:02:UTC"
+    last_accessed_date: "2020-11-03:10:11:02:UTC"
+  - path: "/home/andrzej.rehmann/projects/github/hoto/project-b"
+    root: "/home/andrzej.rehmann/projects"
+    group: "github/hoto"
+    name: "project-b"
     frequency: 0
     created_date: "2020-11-03:10:11:02:UTC"
-    last_accessed_date: "2020-11-03:10:11:02:UTC"
-  - path: "/home/.../project-zeta"
-    frequency: 0
-    created_date: "2020-11-03:10:11:02:UTC"
-    last_accessed_date: "2020-11-03:10:11:02:UTC"
-  - path: "/home/.../im-hungry"
-    frequency: 2
-    created_date: "2020-11-03:10:11:02:UTC"
-    last_accessed_date: "2020-11-03:10:11:02:UTC"
+    last_accessed_date: ""
 ```
 
 ### Installation
